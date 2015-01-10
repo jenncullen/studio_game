@@ -1,7 +1,30 @@
-def say_hello(name)
-  puts"I'm #{name.capitalize}."
+class Player
+  def initialize(name, health=100)
+    @name = name.capitalize
+    @health = health
+  end
+  def to_s
+    "I'm #{@name} with a health of #{@health}."
+  end
+  def blam
+    @health -= 10
+    "#{@name} got blammed!"
+  end
+  def w00t
+    @health += 15
+    "#{@name} got w00ted!"
+  end
 end
-say_hello("larry")
-say_hello("curly")
-say_hello("moe")
-say_hello("shemp")
+player1 = Player.new("moe")
+player2 = Player.new("larry",60)
+player3 = Player.new("curly", 125)
+puts player1
+puts player2
+puts player3
+puts player3.blam
+puts player3
+puts player3.w00t
+puts player3
+
+
+
