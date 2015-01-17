@@ -1,4 +1,7 @@
 class Player
+  def strong?
+    @health > 100
+  end
   attr_reader :health
   attr_accessor :name
   def score
