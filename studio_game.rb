@@ -3,6 +3,7 @@ require_relative 'game'
 require_relative 'clumsy_player'
 require_relative 'berserk_player'
 
+
 berserker = BerserkPlayer.new("berserker", 50)
 klutz = ClumsyPlayer.new("klutz", 105)
 player1 = Player.new("moe")
