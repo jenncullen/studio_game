@@ -6,6 +6,31 @@ require_relative 'treasure_trove'
 class Game
   attr_reader :title
   
+  def high_score_entry(player)
+    formatted_name = player.name.ljust(20, '.')
+    "#{formatted_name} #{player.score}"
+  end
+  
+  def load_players(from_file)
+    CSV.foreach(from_file) do |row|
+      player = Player.new(row[0], row[1]. to_i)
+      add_player
+      #File.readlines(from_file).each do |line|
+      #  name, health = line.split(',')
+      #  add_player(Player.from_csv(line))
+    end
+  end
+
+  def save_high_scores(to_file="high_scores.txt")
+    File.open(to_file, "w") do |file|
+      file.puts "#{@title} High Scores:"
+      @players.sort.each do |player|
+        file.puts high_score_entry(player)
+      end
+    end 
+  end
+
+
   def initialize (title)
     @title = title
     @players = []
@@ -58,8 +83,7 @@ class Game
          
     puts "\n#{@title} High Scores:"
     @players.sort.each do |player|
-      formatted_name = player.name.ljust(20,'.')
-      puts "#{formatted_name} #{player.score}"
+      puts high_score_entry(player)
     end
    
     @players.sort.each do |player|

@@ -5,7 +5,11 @@ describe Player do
     @initial_health = 150
     @player = Player.new("larry", @initial_health)
   end
-  
+  it "can be created from CSV string" do
+    player = Player.from_csv("larry,150")
+    player.name.should == "Larry"
+    player.health.should == 150
+  end
   it "computes a score as the sum of its health and points " do
     @player.found_treasure(Treasure.new(:hammer, 50))
     @player.found_treasure(Treasure.new(:hammer, 50))
