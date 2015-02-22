@@ -1,6 +1,7 @@
-Treasure = Struct.new(:name, :points)
-module TreasureTrove
-  TREASURES = [ 
+module StudioGame
+  Treasure = Struct.new(:name, :points)
+  module TreasureTrove
+    TREASURES = [ 
       Treasure.new(:pie,        5),
       Treasure.new(:bottle,     25),  
       Treasure.new(:hammer,     50),
@@ -9,6 +10,7 @@ module TreasureTrove
       Treasure.new(:crowbar,    400)
     ]
     def self.random
-        TREASURES.sample
+      TREASURES.sample
     end
+  end
 end

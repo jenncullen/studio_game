@@ -3,6 +3,7 @@ require_relative 'game'
 require_relative 'clumsy_player'
 require_relative 'berserk_player'
 
+game = StudioGame::Game.new("knuckleheads")
 
 berserker = BerserkPlayer.new("berserker", 50)
 klutz = ClumsyPlayer.new("klutz", 105)
